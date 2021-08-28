@@ -6,12 +6,14 @@ class chatList extends StatelessWidget {
   final String name;
   final String text;
   final String time;
+  final bool unRead;
 
   chatList(
       {required this.imageUrl,
       required this.name,
       required this.text,
-      required this.time});
+      required this.time,
+      required this.unRead});
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +47,9 @@ class chatList extends StatelessWidget {
                   text,
                   overflow: TextOverflow.ellipsis,
                   maxLines: 1,
-                  style: subTitle,
+                  style: unRead
+                      ? titleTextStyle.copyWith(color: blkColor)
+                      : subTitle,
                 ),
               ),
             ],
